@@ -20,6 +20,7 @@ set shiftwidth=4
 set softtabstop=4;
 set tabstop=4
 
+
 map <C-V> "+gP
 cmap <C-Y> <C-R>+
 vnoremap <C-C> "+y
@@ -71,10 +72,30 @@ Plugin 'gmarik/vundle'
 Plugin 'mattn/emmet-vim'
 Plugin 'jsbeautify'
 Plugin 'neocomplcache'
-
+Plugin 'Lokaltog/vim-easymotion'
 filetype plugin indent on
 
+
+
+
 let g:user_emmet_expandabbr_key='<c-e>'
+
+
+
+
+
+
+map <Leader>l <Plug>(easymotion-lineforward)
+map <Leader>j <Plug>(easymotion-j)
+map <Leader>k <Plug>(easymotion-k)
+map <Leader>h <Plug>(easymotion-linebackward)
+let g:EasyMotion_start = 0
+
+
+
+
+
+
 
 "Note: This option must set it in .vimrc(_vimrc).  NOT IN .gvimrc(_gvimrc)!
 " Disable AutoComplPop.

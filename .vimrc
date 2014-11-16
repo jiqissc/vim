@@ -17,14 +17,51 @@ set autochdir
 set smartindent
 
 set shiftwidth=4
-set softtabstop=4;
-set tabstop=4
+set softtabstop=4
+set tabstop=4 
+
+function! ToggleQuickFixList()
+	"let str = input('input something:')
+	if !exists('g:isQuickFixopen')
+		let g:isQuickFixopen = 0
+	endif
+	if g:isQuickFixopen == 0
+		let g:isQuickFixopen = 1
+		execute 'copen'
+	else
+		let g:isQuickFixopen = 0
+		execute 'cclose'
+	endif
+	return ''
+endfunction
+
+
+map <C-J> :call ToggleQuickFixList()<CR><ESC>
+imap <C-J> <ESC>:call ToggleQuickFixList()<CR>
+"imap <C-J> <C-R>=ToggleQuickFixList()<CR>
+
+function! My_search()
+	if !exists('g:isQuickFixopen')
+		let g:isQuickFixopen = 0
+	endif
+	let str = input('keyword:')
+	if str!=""
+		execute "silent :vimgrep /".str."/g %"
+		execute "copen"
+		let g:isQuickFixopen = 1
+	endif
+	
+endfunction
+
+map <C-F> :call My_search()<CR>
+imap <C-F> <ESC>:call My_search()<CR>
+
 
 
 map <C-V> "+gP
 cmap <C-Y> <C-R>+
 vnoremap <C-C> "+y
-vnoremap <C-V> "+gP
+vnoremap <C-V> "+g
 vnoremap <C-X> "+x
 
 noremap <C-S> :update<CR>
@@ -73,6 +110,7 @@ Plugin 'mattn/emmet-vim'
 Plugin 'jsbeautify'
 Plugin 'neocomplcache'
 Plugin 'Lokaltog/vim-easymotion'
+Plugin 'The-NERD-Commenter'
 filetype plugin indent on
 
 

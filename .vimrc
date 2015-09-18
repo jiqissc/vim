@@ -19,11 +19,15 @@ set smartindent
 set shiftwidth=4
 set softtabstop=4
 set tabstop=4 
+set expandtab
+
+imap ;; <ESC>
+cmap ;; <ESC>
 
 function! ToggleQuickFixList()
 	"let str = input('input something:')
 	if !exists('g:isQuickFixopen')
-		let g:isQuickFixopen = 0
+let g:isQuickFixopen = 0
 	endif
 	if g:isQuickFixopen == 0
 		let g:isQuickFixopen = 1
@@ -53,8 +57,8 @@ function! My_search()
 	
 endfunction
 
-map <C-F> :call My_search()<CR>
-imap <C-F> <ESC>:call My_search()<CR>
+"map <C-F> :call My_search()<CR>
+"imap <C-F> <ESC>:call My_search()<CR>
 
 
 
@@ -111,6 +115,8 @@ Plugin 'jsbeautify'
 Plugin 'neocomplcache'
 Plugin 'Lokaltog/vim-easymotion'
 Plugin 'The-NERD-Commenter'
+Plugin 'The-NERD-tree'
+Plugin 'Indent-Guides'
 filetype plugin indent on
 
 
@@ -118,8 +124,12 @@ filetype plugin indent on
 
 let g:user_emmet_expandabbr_key='<c-e>'
 
-
-
+let g:indent_guides_enable_on_vim_startup = 1
+let g:indent_guides_auto_colors = 1
+"colorscheme inkpot 
+set ts=4 sw=4 et
+autocmd vimEnter,ColorScheme * :hi IndentGuidesOdd guibg=#3a3a3a ctermbg=237
+autocmd vimEnter,ColorScheme * :hi IndentGuidesEven guibg=#444444 ctermbg=238
 
 
 
@@ -127,6 +137,12 @@ map <Leader>l <Plug>(easymotion-lineforward)
 map <Leader>j <Plug>(easymotion-j)
 map <Leader>k <Plug>(easymotion-k)
 map <Leader>h <Plug>(easymotion-linebackward)
+map / <Plug>(easymotion-sn)
+omap / <Plug>(easymotion-sn)
+
+map n <Plug>(easymotion-next)
+omap N <Plug>(easymotion-prev)
+
 let g:EasyMotion_start = 0
 
 

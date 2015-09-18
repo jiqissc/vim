@@ -25,18 +25,18 @@ imap ;; <ESC>
 cmap ;; <ESC>
 
 function! ToggleQuickFixList()
-	"let str = input('input something:')
-	if !exists('g:isQuickFixopen')
+"let str = input('input something:')
+if !exists('g:isQuickFixopen')
 let g:isQuickFixopen = 0
-	endif
-	if g:isQuickFixopen == 0
-		let g:isQuickFixopen = 1
-		execute 'copen'
-	else
-		let g:isQuickFixopen = 0
-		execute 'cclose'
-	endif
-	return ''
+endif
+if g:isQuickFixopen == 0
+    let g:isQuickFixopen = 1
+    execute 'copen'
+else
+    let g:isQuickFixopen = 0
+    execute 'cclose'
+endif
+return ''
 endfunction
 
 
@@ -45,16 +45,16 @@ imap <C-J> <ESC>:call ToggleQuickFixList()<CR>
 "imap <C-J> <C-R>=ToggleQuickFixList()<CR>
 
 function! My_search()
-	if !exists('g:isQuickFixopen')
-		let g:isQuickFixopen = 0
-	endif
-	let str = input('keyword:')
-	if str!=""
-		execute "silent :vimgrep /".str."/g %"
-		execute "copen"
-		let g:isQuickFixopen = 1
-	endif
-	
+if !exists('g:isQuickFixopen')
+    let g:isQuickFixopen = 0
+endif
+let str = input('keyword:')
+if str!=""
+    execute "silent :vimgrep /".str."/g %"
+    execute "copen"
+    let g:isQuickFixopen = 1
+endif
+
 endfunction
 
 "map <C-F> :call My_search()<CR>
@@ -87,13 +87,13 @@ cnoremap <C-A> <C-C>gggH<C-O>G
 onoremap <C-A> <C-C>gggH<C-O>G  
 snoremap <C-A> <C-C>gggH<C-O>G  
 xnoremap <C-A> <C-C>ggVG  
-  
+
 " CTRL-Tab is Next window  
 noremap <C-Tab> <C-W>w  
 inoremap <C-Tab> <C-O><C-W>w  
 cnoremap <C-Tab> <C-C><C-W>w  
 onoremap <C-Tab> <C-C><C-W>w  
-  
+
 " CTRL-F4 is Close window  
 noremap <C-F4> <C-W>c  
 inoremap <C-F4> <C-O><C-W>c  
@@ -170,14 +170,14 @@ let g:neocomplcache_lock_buffer_name_pattern = '\*ku\*'
 
 " Define dictionary.
 let g:neocomplcache_dictionary_filetype_lists = {
-    \ 'default' : '',
-    \ 'vimshell' : $HOME.'/.vimshell_hist',
-    \ 'scheme' : $HOME.'/.gosh_completions'
-        \ }
+\ 'default' : '',
+\ 'vimshell' : $HOME.'/.vimshell_hist',
+\ 'scheme' : $HOME.'/.gosh_completions'
+    \ }
 
 " Define keyword.
 if !exists('g:neocomplcache_keyword_patterns')
-    let g:neocomplcache_keyword_patterns = {}
+let g:neocomplcache_keyword_patterns = {}
 endif
 let g:neocomplcache_keyword_patterns['default'] = '\h\w*'
 
@@ -189,9 +189,9 @@ inoremap <expr><C-l>     neocomplcache#complete_common_string()
 " <CR>: close popup and save indent.
 inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
 function! s:my_cr_function()
-  "return neocomplcache#smart_close_popup() . "\<CR>"
-  " For no inserting <CR> key.
-  return pumvisible() ? neocomplcache#close_popup() : "\<CR>"
+"return neocomplcache#smart_close_popup() . "\<CR>"
+" For no inserting <CR> key.
+return pumvisible() ? neocomplcache#close_popup() : "\<CR>"
 endfunction
 " <TAB>: completion.
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
@@ -208,6 +208,12 @@ inoremap <expr><C-e>  neocomplcache#cancel_popup()
 "inoremap <expr><Right> neocomplcache#close_popup() . "\<Right>"
 "inoremap <expr><Up>    neocomplcache#close_popup() . "\<Up>"
 "inoremap <expr><Down>  neocomplcache#close_popup() . "\<Down>"
+
+inoremap <expr><C-j>   "\<Left>"
+inoremap <expr><C-l>   "\<Right>"
+inoremap <expr><C-i>   "\<Up>"
+inoremap <expr><C-k>   "\<Down>"
+
 " Or set this.
 "let g:neocomplcache_enable_cursor_hold_i = 1
 " Or set this.
@@ -240,3 +246,10 @@ let g:neocomplcache_omni_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
 " For perlomni.vim setting.
 " https://github.com/c9s/perlomni.vim
 let g:neocomplcache_omni_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
+
+nnoremap j h
+nnoremap k j
+nnoremap i k
+
+nnoremap I i
+

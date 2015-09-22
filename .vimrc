@@ -24,82 +24,6 @@ set expandtab
 imap ;; <ESC>
 cmap ;; <ESC>
 
-function! ToggleQuickFixList()
-"let str = input('input something:')
-if !exists('g:isQuickFixopen')
-let g:isQuickFixopen = 0
-endif
-if g:isQuickFixopen == 0
-    let g:isQuickFixopen = 1
-    execute 'copen'
-else
-    let g:isQuickFixopen = 0
-    execute 'cclose'
-endif
-return ''
-endfunction
-
-
-map <C-J> :call ToggleQuickFixList()<CR><ESC>
-imap <C-J> <ESC>:call ToggleQuickFixList()<CR>
-"imap <C-J> <C-R>=ToggleQuickFixList()<CR>
-
-function! My_search()
-if !exists('g:isQuickFixopen')
-    let g:isQuickFixopen = 0
-endif
-let str = input('keyword:')
-if str!=""
-    execute "silent :vimgrep /".str."/g %"
-    execute "copen"
-    let g:isQuickFixopen = 1
-endif
-
-endfunction
-
-"map <C-F> :call My_search()<CR>
-"imap <C-F> <ESC>:call My_search()<CR>
-
-
-
-map <C-V> "+gP
-cmap <C-Y> <C-R>+
-vnoremap <C-C> "+y
-vnoremap <C-V> "+g
-vnoremap <C-X> "+x
-
-noremap <C-S> :update<CR>
-vnoremap <C-S> <C-C>:update<CR>
-inoremap <C-S> <C-O>:update<CR>
-
-
-noremap <C-Z> u
-inoremap <C-Z> <C-O>u
-
-noremap <C-Y> <C-R>
-inoremap <C-Y> <C-O><C-R>
-
-
-" CTRL-A is Select all  
-noremap <C-A> gggH<C-O>G  
-inoremap <C-A> <C-O>gg<C-O>gH<C-O>G  
-cnoremap <C-A> <C-C>gggH<C-O>G  
-onoremap <C-A> <C-C>gggH<C-O>G  
-snoremap <C-A> <C-C>gggH<C-O>G  
-xnoremap <C-A> <C-C>ggVG  
-
-" CTRL-Tab is Next window  
-noremap <C-Tab> <C-W>w  
-inoremap <C-Tab> <C-O><C-W>w  
-cnoremap <C-Tab> <C-C><C-W>w  
-onoremap <C-Tab> <C-C><C-W>w  
-
-" CTRL-F4 is Close window  
-noremap <C-F4> <C-W>c  
-inoremap <C-F4> <C-O><C-W>c  
-cnoremap <C-F4> <C-C><C-W>c  
-onoremap <C-F4> <C-C><C-W>c 
-
 
 syntax on
 filetype off
@@ -121,8 +45,13 @@ filetype plugin indent on
 
 
 
+"let g:user_emmet_mode='a'
+"let g:user_emmet_install_global=0
+"autocmd FileType html,css EmmetInstall
 
-let g:user_emmet_expandabbr_key='<c-e>'
+"let g:user_emmet_expandabbr_key='<C-=>'
+
+"let g:user_emmet_leader_key='<C-Y>'
 
 let g:indent_guides_enable_on_vim_startup = 1
 let g:indent_guides_auto_colors = 1
@@ -209,10 +138,6 @@ inoremap <expr><C-e>  neocomplcache#cancel_popup()
 "inoremap <expr><Up>    neocomplcache#close_popup() . "\<Up>"
 "inoremap <expr><Down>  neocomplcache#close_popup() . "\<Down>"
 
-inoremap <expr><C-j>   "\<Left>"
-inoremap <expr><C-l>   "\<Right>"
-inoremap <expr><C-i>   "\<Up>"
-inoremap <expr><C-k>   "\<Down>"
 
 " Or set this.
 "let g:neocomplcache_enable_cursor_hold_i = 1

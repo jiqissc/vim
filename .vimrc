@@ -51,7 +51,7 @@ filetype plugin indent on
 
 "let g:user_emmet_expandabbr_key='<C-=>'
 
-"let g:user_emmet_leader_key='<C-Y>'
+"let g:user_emmet_leader_key='<c-x>'
 
 let g:indent_guides_enable_on_vim_startup = 1
 let g:indent_guides_auto_colors = 1
@@ -172,4 +172,18 @@ let g:neocomplcache_omni_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
 " https://github.com/c9s/perlomni.vim
 let g:neocomplcache_omni_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
 
+"alt hotkeys
+map <ESC>, <C-W><
+map <ESC>. <C-W>>
+map <ESC>- <C-w>-
+map <ESC>= <C-W>=
+map <ESC>+ <C-W>+
+
+
+"session auto save
+
+au VimLeave * exe 'if exists("g:sessionName")|exe "wviminfo! ~/.vim/session/".g:sessionName.".session.viminfo"|else|exe "wviminfo! ~/.vim/session/.work.session.viminfo"|endif'
+
+
+au VimLeave * exe 'if exists("g:sessionName")|exe "mksession! ~/.vim/session/".g:sessionName.".session"|else|exe "mksession! ~/.vim/session/.work.session"|endif'
 

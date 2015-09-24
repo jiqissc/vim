@@ -1,0 +1,7 @@
+#!/bin/sh
+
+if [ -r ~/.vim/session/$1.session ];then
+    vim   "+source ~/.vim/session/$1.session" "+rviminfo ~/.vim/session/$1.session.viminfo" '+let g:sessionName="'$1'"'
+else
+    vim '+let g:sessionName="'$1'"'
+fi

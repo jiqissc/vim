@@ -182,8 +182,8 @@ map <ESC>+ <C-W>+
 
 "session auto save
 
-au VimLeave * exe 'if exists("g:sessionName")|exe "wviminfo! ~/.vim/session/".g:sessionName.".session.viminfo"|else|exe "wviminfo! ~/.vim/session/.work.session.viminfo"|endif'
+au VimLeave * exe 'if exists("g:cmdName")&&g:cmdName=="vims"|if exists("g:sessionName")|exe "wviminfo! ~/.vim/session/".g:sessionName.".session.viminfo"|else|exe "wviminfo! ~/.vim/session/.work.session.viminfo"|endif|endif'
 
 
-au VimLeave * exe 'if exists("g:sessionName")|exe "mksession! ~/.vim/session/".g:sessionName.".session"|else|exe "mksession! ~/.vim/session/.work.session"|endif'
+au VimLeave * exe 'if exists("g:cmdName")&&g:cmdName=="vims"|if exists("g:sessionName")|exe "mksession! ~/.vim/session/".g:sessionName.".session"|else|exe "mksession! ~/.vim/session/.work.session"|endif|endif'
 

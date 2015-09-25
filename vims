@@ -1,12 +1,14 @@
 #!/bin/sh
 
 if [ -z "$1" ]; then
-    vim "+source ~/.vim/session/.work.session" "+rviminfo ~/.vim/session/.work.session.viminfo"
-    exit 0
+    if [ -r ~/vim/session/.work.session  ]; then
+        vim "+source ~/.vim/session/.work.session" "+rviminfo ~/.vim/session/.work.session.viminfo" '+let g:cmdName="vims"'
+        exit 0
+    fi
 fi
 
 if [ -r ~/.vim/session/$1.session ];then
-    vim   "+source ~/.vim/session/$1.session" "+rviminfo ~/.vim/session/$1.session.viminfo" '+let g:sessionName="'$1'"'
+    vim   "+source ~/.vim/session/$1.session" "+rviminfo ~/.vim/session/$1.session.viminfo" '+let g:sessionName="'$1'"' '+let g:cmdName="vims"'
 else
-    vim '+let g:sessionName="'$1'"'
+    vim '+let g:sessionName="'$1'"' '+let g:cmdName="vims"'
 fi

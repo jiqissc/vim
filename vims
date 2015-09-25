@@ -1,10 +1,11 @@
 #!/bin/sh
 
 if [ -z "$1" ]; then
-    if [ -r ~/vim/session/.work.session  ]; then
+        touch ~/.vim/session/.work.session
+        touch ~/.vim/session/.work.session.viminfo
+
         vim "+source ~/.vim/session/.work.session" "+rviminfo ~/.vim/session/.work.session.viminfo" '+let g:cmdName="vims"'
         exit 0
-    fi
 fi
 
 if [ -r ~/.vim/session/$1.session ];then

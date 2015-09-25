@@ -1,5 +1,10 @@
 #!/bin/sh
 
+if [ -z "$1" ]; then
+    vim "+source ~/.vim/session/.work.session" "+rviminfo ~/.vim/session/.work.session.viminfo"
+    exit 0
+fi
+
 if [ -r ~/.vim/session/$1.session ];then
     vim   "+source ~/.vim/session/$1.session" "+rviminfo ~/.vim/session/$1.session.viminfo" '+let g:sessionName="'$1'"'
 else

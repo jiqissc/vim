@@ -32,8 +32,12 @@ set expandtab
 
 "imap  [[ <ESC>
 "cmap  [[ <ESC>
-inoremap jj <Esc>
 
+inoremap jj <Esc>
+nnoremap <Tab> <Esc>
+vnoremap <Tab> <Esc>
+cnoremap <Tab> <Esc>
+onoremap <Tab> <Esc>
 
 
 filetype off

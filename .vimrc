@@ -36,7 +36,7 @@ set expandtab
 inoremap jj <Esc>
 nnoremap <Tab> <Esc>
 vnoremap <Tab> <Esc>
-cnoremap <Tab> <Esc>
+cnoremap jj  <Esc>
 onoremap <Tab> <Esc>
 
 

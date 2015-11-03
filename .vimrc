@@ -1,10 +1,11 @@
+set sessionoptions=blank,tabpages,curdir,folds,winsize,buffers,help
 syntax on
 "let g:solarized_termcolors=256
 "let g:solarized_termtrans=0
 "let g:solarized_degrade=1
 "let g:solarized_contrast="high"
 "let g:solarized_visibility="high"
-"set t_Co=256
+set t_Co=256
 "set term=xterm+256color
 set background=dark
 colorscheme desert 
@@ -57,6 +58,7 @@ Plugin 'Lokaltog/vim-easymotion'
 Plugin 'The-NERD-Commenter'
 Plugin 'The-NERD-tree'
 Plugin 'Indent-Guides'
+Plugin 'vim-scripts/CSApprox'
 filetype plugin indent on
 
 
@@ -212,8 +214,8 @@ let $BASH_ENV = "~/.bash_aliases"
 
 "set tabs
 hi TabLineFill ctermfg=LightGray ctermbg=LightGray
-hi TabLine ctermfg=DarkGray ctermbg=LightBlue term=NONE cterm=NONE
-hi TabLineSel ctermfg=White ctermbg=DarkRed term=NONE cterm=NONE
+hi TabLine ctermfg=DarkGray ctermbg=LightBlue term=NONE cterm=NONE guibg=Cyan guifg=Gray30 gui=None
+hi TabLineSel ctermfg=White ctermbg=Red term=NONE cterm=NONE guibg=Red guifg=White gui=None
 "hi Title ctermfg=LightBlue ctermbg=Magenta
 set tabline=%!MyTabLine()  " custom tab pages line
 function MyTabLine()
@@ -285,3 +287,8 @@ function MyTabLine()
     endif
     return s
 endfunction
+
+inoremap < <><Esc>i
+inoremap ( ()<Esc>i
+inoremap { {}<Esc>i<CR><CR><Esc>k<S-A><Tab>
+inoremap [ []<Esc>i

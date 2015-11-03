@@ -232,7 +232,7 @@ function MyTabLine()
             let s .= '%' . (t + 1) . 'T'
             let s .= ' '
             " set page number string
-            let s .= t + 1 . ' '
+            let s .= t + 1 . ':'
             " get buffer names and statuses
             let n = ''      "temp string for buffer names while we loop and check buftype
             let m = 0       " &modified counter

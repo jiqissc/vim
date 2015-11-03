@@ -10,6 +10,8 @@ set background=dark
 colorscheme desert 
 "colorscheme solarized
 
+set timeoutlen=250
+
 set guifont=DejaVu\ Sans\ Mono\ 10
 set number
 set guioptions-=L

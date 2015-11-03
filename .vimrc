@@ -1,10 +1,14 @@
 syntax on
+"let g:solarized_termcolors=256
+"let g:solarized_termtrans=0
+"let g:solarized_degrade=1
+"let g:solarized_contrast="high"
+"let g:solarized_visibility="high"
 "set t_Co=256
-set term=xterm-256color
-let g:solarized_termcolors=256
+"set term=xterm+256color
 set background=dark
-"colorscheme desert 
-colorscheme solarized
+colorscheme desert 
+"colorscheme solarized
 
 set guifont=DejaVu\ Sans\ Mono\ 10
 set number
@@ -26,8 +30,10 @@ set softtabstop=4
 set tabstop=4 
 set expandtab
 
-imap  [[ <ESC>
-cmap  [[ <ESC>
+"imap  [[ <ESC>
+"cmap  [[ <ESC>
+inoremap jj <Esc>
+
 
 
 filetype off

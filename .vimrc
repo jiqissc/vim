@@ -308,4 +308,5 @@ inoremap ( ()<Esc>i
 inoremap { {}<Esc>i<CR><CR><Esc>k<S-A><Tab>
 inoremap [ []<Esc>i
 
-
+let g:tern#command = 'tern'
+let g:tern#arguments = ''

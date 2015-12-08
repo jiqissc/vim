@@ -59,9 +59,12 @@ Plugin 'The-NERD-Commenter'
 Plugin 'The-NERD-tree'
 Plugin 'Indent-Guides'
 Plugin 'vim-scripts/CSApprox'
+"Plugin 'Lokaltog/vim-powerline'
+Plugin 'ternjs/tern_for_vim'
 filetype plugin indent on
 
-
+"set guifont=PowerlineSymbols\ for\ Powerline
+"let g:Powerline_symbols = 'fancy'
 
 "let g:user_emmet_mode='a'
 "let g:user_emmet_install_global=0
@@ -199,6 +202,18 @@ map <ESC>- <C-w>-
 map <ESC>= <C-W>=
 map <ESC>+ <C-W>+
 
+"tern
+map <ESC>f :TernDef
+map <Esc>d :TernDoc<C-w>w
+map <Esc>t :TernType
+map <Esc>r :TernRefs
+map <Esc>m :TernRename
+
+"buffer
+map <Esc>p :bp
+map <Esc>n :bn
+map <Esc>b :b#
+
 
 "session auto save
 
@@ -292,3 +307,5 @@ inoremap < <><Esc>i
 inoremap ( ()<Esc>i
 inoremap { {}<Esc>i<CR><CR><Esc>k<S-A><Tab>
 inoremap [ []<Esc>i
+
+

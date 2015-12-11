@@ -310,3 +310,6 @@ inoremap [ []<Esc>i
 
 let g:tern#command = 'tern'
 let g:tern#arguments = ''
+
+"set incsearch
+set hlsearch

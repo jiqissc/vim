@@ -209,6 +209,9 @@ map <Esc>t :TernType
 map <Esc>r :TernRefs
 map <Esc>m :TernRename
 
+"emmet
+imap e , 
+
 "buffer
 map <Esc>p :bp
 map <Esc>n :bn

@@ -51,6 +51,7 @@ set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
 Plugin 'gmarik/vundle'
+Plugin 'mattn/webapi-vim'
 Plugin 'mattn/emmet-vim'
 Plugin 'jsbeautify'
 Plugin 'neocomplcache'
@@ -61,14 +62,19 @@ Plugin 'Indent-Guides'
 Plugin 'vim-scripts/CSApprox'
 "Plugin 'Lokaltog/vim-powerline'
 Plugin 'ternjs/tern_for_vim'
+Plugin 'salomvary/vim-eslint-compiler'
+"Plugin 'idbrii/AsyncCommand'
+Plugin  'tpope/vim-dispatch'
 filetype plugin indent on
 
 "set guifont=PowerlineSymbols\ for\ Powerline
 "let g:Powerline_symbols = 'fancy'
 
-"let g:user_emmet_mode='a'
-"let g:user_emmet_install_global=0
-"autocmd FileType html,css EmmetInstall
+let g:user_emmet_mode='a'
+let g:user_emmet_install_global=0
+let g:user_emmet_complete_tag=1
+autocmd FileType xhtml,html,css EmmetInstall
+let g:user_emmet_settings=webapi#json#decode(join(readfile(expand('~/.snippets_custom.json')), "\n"))
 
 "let g:user_emmet_expandabbr_key='<C-=>'
 
@@ -177,8 +183,8 @@ inoremap <expr><C-e>  neocomplcache#cancel_popup()
 "inoremap <expr><TAB>  pumvisible() ? "\<Down>" : "\<C-x>\<C-u>"
 
 " Enable omni completion.
-autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+"autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+"autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
 "autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
@@ -210,7 +216,7 @@ map <Esc>r :TernRefs
 map <Esc>m :TernRename
 
 "emmet
-imap e , 
+imap <buffer> e , 
 
 "buffer
 map <Esc>p :bp
@@ -306,13 +312,21 @@ function MyTabLine()
     return s
 endfunction
 
-inoremap < <><Esc>i
-inoremap ( ()<Esc>i
-inoremap { {}<Esc>i<CR><CR><Esc>k<S-A><Tab>
-inoremap [ []<Esc>i
+"inoremap < <><Esc>i
+autocmd FileType javascript inoremap <buffer> ( ()<Esc>i
+autocmd FileType javascript inoremap <buffer> { {}<Esc>i
+autocmd FileType javascript inoremap <buffer> [ []<Esc>i
 
 let g:tern#command = 'tern'
 let g:tern#arguments = ''
 
 "set incsearch
 set hlsearch
+
+"eslint
+autocmd BufEnter *.js compiler eslint
+"csslint
+autocmd BufEnter *.css compiler csslint
+
+"make
+autocmd FileType javascript map <M-F9> :exec"Make! %"<bar>sleep 2<bar>Copen<CR>

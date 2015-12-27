@@ -65,6 +65,7 @@ Plugin 'ternjs/tern_for_vim'
 Plugin 'salomvary/vim-eslint-compiler'
 "Plugin 'idbrii/AsyncCommand'
 Plugin  'tpope/vim-dispatch'
+Plugin 'kien/ctrlp.vim'
 filetype plugin indent on
 
 "set guifont=PowerlineSymbols\ for\ Powerline

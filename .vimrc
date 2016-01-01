@@ -66,6 +66,10 @@ Plugin 'salomvary/vim-eslint-compiler'
 "Plugin 'idbrii/AsyncCommand'
 Plugin  'tpope/vim-dispatch'
 Plugin 'kien/ctrlp.vim'
+Plugin 'MarcWeber/vim-addon-mw-utils'
+Plugin 'tomtom/tlib_vim'
+Plugin 'garbas/vim-snipmate'
+Plugin 'honza/vim-snippets'
 filetype plugin indent on
 
 "set guifont=PowerlineSymbols\ for\ Powerline
@@ -331,3 +335,7 @@ autocmd BufEnter *.css compiler csslint
 
 "make
 autocmd FileType javascript map <M-F9> :exec"Make! %"<bar>sleep 2<bar>Copen<CR>
+
+"snipmate
+imap <S-Tab>  <Plug>snipMateNextOrTrigger
+imap ^<S-Tab> <plug>snipMateBack

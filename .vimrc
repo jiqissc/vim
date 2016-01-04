@@ -70,6 +70,8 @@ Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'tomtom/tlib_vim'
 Plugin 'garbas/vim-snipmate'
 Plugin 'honza/vim-snippets'
+Plugin 'godlygeek/tabular'
+Plugin 'plasticboy/vim-markdown'
 filetype plugin indent on
 
 "set guifont=PowerlineSymbols\ for\ Powerline
@@ -339,3 +341,7 @@ autocmd FileType javascript map <M-F9> :exec"Make! %"<bar>sleep 2<bar>Copen<CR>
 "snipmate
 imap <S-Tab>  <Plug>snipMateNextOrTrigger
 imap ^<S-Tab> <plug>snipMateBack
+
+"markdown
+autocmd BufRead,BufNewFile *.{md,mdown,mkd,mkdn,markdown,mdwn} set filetype=markdown
+

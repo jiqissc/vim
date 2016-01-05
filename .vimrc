@@ -338,6 +338,9 @@ autocmd BufEnter *.css compiler csslint
 "make
 autocmd FileType javascript map <M-F9> :exec"Make! %"<bar>sleep 2<bar>Copen<CR>
 
+"ctrlp
+let g:ctrlp_working_path_mode = 'c'
+
 "snipmate
 imap <S-Tab>  <Plug>snipMateNextOrTrigger
 imap ^<S-Tab> <plug>snipMateBack

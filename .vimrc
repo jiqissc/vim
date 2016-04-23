@@ -364,5 +364,5 @@ autocmd BufRead,BufNewFile *.{md,mdown,mkd,mkdn,markdown,mdwn} set filetype=mark
 autocmd FileType javascript noremap <buffer>  <Leader>ff :call JsBeautify()<cr>
 autocmd FileType json noremap <buffer> <Leader>ff :call JsonBeautify()<cr>
 autocmd FileType jsx noremap <buffer> <Leader>ff :call JsxBeautify()<cr>
-autocmd FileType html noremap <buffer> <Leader>ff :call HtmlBeautify()<cr>
+autocmd FileType html,xhtml noremap <buffer> <Leader>ff :call HtmlBeautify()<cr>
 autocmd FileType css noremap <buffer> <Leader>ff :call CSSBeautify()<cr>

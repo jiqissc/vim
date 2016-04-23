@@ -330,6 +330,19 @@ let g:tern#arguments = ''
 "set incsearch
 set hlsearch
 
+"hide preview
+set completeopt=menu
+
+"highlight currentline
+set cursorline
+hi CursorLine guibg=#181818
+
+"statusbar highlighting
+set laststatus=2
+au InsertEnter * hi StatusLine term=bold ctermbg=90 ctermfg=White
+au InsertLeave * hi StatusLine term=bold ctermbg=2 ctermfg=White
+
+
 "eslint
 autocmd BufEnter *.js compiler eslint
 "csslint
